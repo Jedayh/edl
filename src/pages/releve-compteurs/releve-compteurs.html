@@ -1,0 +1,300 @@
+<ion-header>
+  <!--
+  <div class="tete">
+    <ion-icon name="ios-disc-outline"></ion-icon> ABC immoservices
+  </div>
+  -->
+</ion-header>
+
+
+<ion-content class="body">
+
+  <div class="tete">
+    <img width="12%" height="auto" src="../../assets/imgs/logo.png">
+    <!-- <span style="padding-bottom: 20px"> ABC immoservices</span> -->
+  </div>
+
+  <div class="corp">
+    <ion-grid>
+      <ion-row style="border-bottom: 1px solid;">
+        <ion-col class="title uppercase">Compteur</ion-col>
+      </ion-row>
+
+      <div *ngFor="let compter of compters">
+        <ion-row>
+          <ion-col class="title">
+            <label class="title">Eau froide</label>
+            <ion-toggle [(ngModel)]="compter.eauFroide"></ion-toggle>
+            <span style="padding: .8em .1em; font-size: 1.4rem; color: rgba(255, 255, 255, 0.46);">disponible</span>
+          </ion-col>
+          <ion-col class="title">
+            <label class="title">Eau chaude</label>
+            <ion-toggle [(ngModel)]="compter.eauChaude"></ion-toggle>
+            <span style="padding: .8em .1em; font-size: 1.4rem; color: rgba(255, 255, 255, 0.46);">disponible</span>
+          </ion-col>
+        </ion-row>
+        <ion-row class="form">
+          <ion-col class="addphoto" (click)="openCamera(1)" [ngClass]="{'disableImg': !compter.eauFroide}">
+            <img [src]="compter.eauFroidePhoto" alt="">
+          </ion-col>
+          <ion-col col-4>
+            <ion-row>
+              <ion-col col-6>Type </ion-col>
+              <ion-col col-6>
+                <ion-select interface="popover" [(ngModel)]="compter.eauFroideType" style="width:100%" [disabled]="!compter.eauFroide">
+                  <ion-option value="Individuel"> Individuel </ion-option>
+                  <ion-option value="Collectif"> Collectif </ion-option>
+                </ion-select>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-6>Relevé </ion-col>
+              <ion-col col-6>
+                <ion-select interface="popover" [(ngModel)]="compter.eauFroideReleve" style="width:100%" [disabled]="!compter.eauFroide">
+                  <ion-option value="Accessible"> Accessible </ion-option>
+                  <ion-option value="Introuvable"> Introuvable </ion-option>
+                </ion-select>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-6>Numéro de compteur </ion-col>
+              <ion-col col-6 class="text-right">
+                <input type="text" [(ngModel)]="compter.eauFroideNumero" [disabled]="!compter.eauFroide"  />
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-6>Compteur (relevé)</ion-col>
+              <ion-col col-6 class="text-right">
+                <input type="text" [(ngModel)]="compter.eauFroideCompteur" [disabled]="!compter.eauFroide" />
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-6> Localisation </ion-col>
+              <ion-col col-6 class="text-right">
+                <input type="text" [(ngModel)]="compter.eauFroideLocalisation" [disabled]="!compter.eauFroide" />
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-6> Observation </ion-col>
+              <ion-col col-6 class="text-right">
+                <input type="text" [(ngModel)]="compter.eauFroideObservation" [disabled]="!compter.eauFroide" />
+              </ion-col>
+            </ion-row>
+          </ion-col>
+          <ion-col class="addphoto" (click)="openCamera(5)" [ngClass]="{'disableImg': !compter.eauChaude}">
+            <img src="{{ compter.eauChaudePhoto }}" alt="">
+          </ion-col>
+          <ion-col col-4>
+            <ion-row>
+              <ion-col col-6>Type </ion-col>
+              <ion-col col-6>
+                <ion-select interface="popover" [(ngModel)]="compter.eauChaudeType" style="width:100%" [disabled]="!compter.eauChaude">
+                  <ion-option value="Individuel"> Individuel </ion-option>
+                  <ion-option value="Collectif"> Collectif </ion-option>
+                </ion-select>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-6>Relevé </ion-col>
+              <ion-col col-6>
+                <ion-select interface="popover" [(ngModel)]="compter.eauChaudeReleve" style="width:100%" [disabled]="!compter.eauChaude">
+                  <ion-option value="Accessible"> Accessible </ion-option>
+                  <ion-option value="Introuvable"> Introuvable </ion-option>
+                </ion-select>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-6>Numéro de compteur </ion-col>
+              <ion-col col-6 class="text-right">
+                <input type="text" [(ngModel)]="compter.eauChaudeNumero" [disabled]="!compter.eauChaude"  />
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-6>Compteur (relevé)</ion-col>
+              <ion-col col-6 class="text-right">
+                <input type="text" [(ngModel)]="compter.eauChaudeCompteur" [disabled]="!compter.eauChaude" />
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-6> Localisation </ion-col>
+              <ion-col col-6 class="text-right">
+                <input type="text" [(ngModel)]="compter.eauChaudeLocalisation" [disabled]="!compter.eauChaude" />
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-6> Observation </ion-col>
+              <ion-col col-6 class="text-right">
+                <input type="text" [(ngModel)]="compter.eauChaudeObservation" [disabled]="!compter.eauChaude" />
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </div>
+      <!-- Electricité -->
+      <ion-row>
+        <ion-col class="title">
+          <label class="title">Electricité</label>
+          <ion-toggle [(ngModel)]="compteur.electricite"></ion-toggle>
+          <span style="padding: .8em .1em; font-size: 1.4rem; color: rgba(255, 255, 255, 0.46);">alimenté</span>
+        </ion-col>
+        <ion-col class="title">
+          <label class="title">Chauffage </label>
+          <ion-toggle [(ngModel)]="compteur.chauffage"></ion-toggle>
+          <span style="padding: .8em .1em; font-size: 1.4rem; color: rgba(255, 255, 255, 0.46);">disponible</span>
+        </ion-col>
+      </ion-row>
+      <ion-row class="form">
+        <ion-col col-1 class="addphotosmall" (click)="openCamera(3)" [ngClass]="{'disableImg': !compteur.electricite}">
+          <img src="{{ compteur.electricitePhoto }}" alt="">
+        </ion-col>
+        <ion-col col-1 class="addphotosmall" (click)="openCamera(6)" [ngClass]="{'disableImg': !compteur.electricite}">
+          <img src="{{ compteur.electricitePhoto2 }}" alt="">
+        </ion-col>
+        <ion-col col-4>
+          <ion-row>
+            <ion-col col-6> Heures pleines </ion-col>
+            <ion-col col-6 class="text-right">
+              <input type="text" [(ngModel)]="compteur.electriciteHeuresPleines" [disabled]="!compteur.electricite" />
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6> Heures creuses </ion-col>
+            <ion-col col-6 class="text-right">
+              <input type="text" [(ngModel)]="compteur.electriciteHeuresCreuse" [disabled]="!compteur.electricite" />
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6> Numéro de compteur </ion-col>
+            <ion-col col-6 class="text-right">
+              <input type="text" [(ngModel)]="compteur.electriciteNumero" [disabled]="!compteur.electricite" />
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6> Localisation </ion-col>
+            <ion-col col-6 class="text-right">
+              <input type="text" [(ngModel)]="compteur.electiriciteLocalisation" [disabled]="!compteur.electricite" />
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6> Observation </ion-col>
+            <ion-col col-6 class="text-right">
+              <input type="text" [(ngModel)]="compteur.electiriciteObservation" [disabled]="!compteur.electricite" />
+            </ion-col>
+          </ion-row>
+        </ion-col>
+
+        <ion-col col-2 class="addphoto" (click)="openCamera(2)" [ngClass]="{'disableImg': !compteur.chauffage}">
+          <img src="{{ compteur.chauffagePhoto }}" alt="">
+        </ion-col>
+        <ion-col col-4>
+          <ion-row>
+            <ion-col col-5> Type </ion-col>
+            <ion-col col-7>
+              <ion-select interface="popover" [(ngModel)]="compteur.chauffageType" style="width:100%" [disabled]="!compteur.chauffage">
+                <ion-option value="Individuel"> Individuel </ion-option>
+                <ion-option value="Collectif"> Collectif </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-5> Chauffage </ion-col>
+            <ion-col col-7>
+              <ion-select interface="popover" [(ngModel)]="compteur.chauffageCha" style="width:100%" [disabled]="!compteur.chauffage">
+                <ion-option value="Gaz"> Gaz </ion-option>
+                <ion-option value="Electrique"> Electrique </ion-option>
+                <ion-option value="Pompe à chaleur"> Pompe à chaleur </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-5> Observation </ion-col>
+            <ion-col col-7 class="text-right">
+              <input type="text" [(ngModel)]="compteur.chauffageObservation" [disabled]="!compteur.chauffage" />
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="title"> Gaz
+          <ion-toggle [(ngModel)]="compteur.gaz"></ion-toggle>
+          <span style="padding: .8em .1em; font-size: 1.4rem; color: rgba(255, 255, 255, 0.46);">alimenté</span>
+        </ion-col>
+      </ion-row>
+      <ion-row class="form">
+        <ion-col col-2 class="addphoto" (click)="openCamera(4)" [ngClass]="{'disableImg': !compteur.gaz}">
+          <img src="{{ compteur.gazPhoto }}" alt="">
+        </ion-col>
+
+        <ion-col col-4>
+          <ion-row>
+            <ion-col col-6>Type </ion-col>
+            <ion-col col-6>
+              <ion-select interface="popover" [(ngModel)]="compteur.gazType" style="width:100%" [disabled]="!compteur.gaz">
+                <ion-option value="Individuel"> Individuel </ion-option>
+                <ion-option value="Collectif"> Collectif </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6>Relevé </ion-col>
+            <ion-col col-6>
+              <ion-select interface="popover" [(ngModel)]="compteur.gazReleve" style="width:100%" [disabled]="!compteur.gaz">
+                <ion-option value="Accessible"> Accessible </ion-option>
+                <ion-option value="Introuvable"> Introuvable </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6>Numéro de compteur </ion-col>
+            <ion-col col-6 class="text-right">
+              <input type="text" [(ngModel)]="compteur.gazNumero" [disabled]="!compteur.gaz" />
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6>Compteur (relevé)</ion-col>
+            <ion-col col-6 class="text-right">
+              <input type="text" [(ngModel)]="compteur.gazCompteur" [disabled]="!compteur.gaz" />
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6> Localisation </ion-col>
+            <ion-col col-6 class="text-right">
+              <input type="text" [(ngModel)]="compteur.gazLocalisation" [disabled]="!compteur.gaz" />
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6> Observation </ion-col>
+            <ion-col col-6 class="text-right">
+              <input type="text" [(ngModel)]="compteur.gazObservation" [disabled]="!compteur.gaz" />
+            </ion-col>
+          </ion-row>
+        </ion-col>
+
+        <ion-col col-6>
+          <ion-row>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div class="pied">
+    <ion-grid>
+      <ion-row>
+        <ion-col (click)="prev()">
+          <ion-icon class="pager" name="arrow-round-back"></ion-icon>
+        </ion-col>
+        <ion-col>
+            <button ion-button (tap)="add()">Ajout compteur d'eau</button>
+            <button ion-button (tap)="remove()" *ngIf="isAdd">Supprimer</button>
+
+        </ion-col>
+        <ion-col (click)="next()">
+          <ion-icon class="pager" name="arrow-round-forward" style="float: right;"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-footer>

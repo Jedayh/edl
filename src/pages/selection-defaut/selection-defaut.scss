@@ -1,0 +1,164 @@
+page-selection-defaut {
+  .rowTitle {
+    margin-top: 12px;
+  }
+  .titre {
+    margin-top: 10px;
+    color: #3b827e;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 5px 20px 5px 20px;
+    width:600px;
+  }
+  .propreteSelector {
+    width:100%;
+    max-width:100%;
+    background-color: #ffffff;
+    color: #3b827e;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  input {
+    background-color: #ffffff;
+    color: #3b827e;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .help {
+    text-align:center;
+    margin-top: 10px;
+    color: #3b827e;
+    font-size: 18px;
+    margin-left: 20px;
+  }
+  #selectionDefaut {
+    height: 500px;
+  }
+  #selectionDefaut.markerAdded {
+    height: 230px;
+  }
+  .addphoto{
+    background-color: #ffffff;
+    text-align: center;
+    height: 80px;
+    width: 80px;
+    img{
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+  .camphoto{
+    background: none!important;
+    max-width: 50%;
+  }
+  .outer {
+    display: table;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .imageC {
+    width: 100%;
+    height: auto;
+  }
+  .inner {
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    /*whatever width you want*/
+  }
+  .pied {
+    background-color: #ffffff;
+    font-size: 18px;
+    color: #FF0046;
+    .pager {
+      border-radius: 30px;
+      padding: 0.1em 0.5em 0.1em 0.5em;
+    }
+    .pager:hover {
+      color: #fff;
+      background-color: #FF0046;
+    }
+    ion-icon {
+      display: inline-block;
+      font-size: 1.8em !important;
+    }
+  }
+  .whiteBackground {
+    background-color: #fff!important;
+  }
+  .sectionSelected {
+    background-color: #fff!important;
+    padding: 0;
+    text-align: center;
+    color: black;
+  }
+  .classicState {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  .redState {
+    color: red;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  .blueState {
+    color: blue;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  .scrollContent {
+    height: 300px;
+    overflow: scroll;
+  }
+  .iconToggle {
+    float: right;
+    color: green;
+  }
+  .listeDefauts {
+    background-color: rgba($color: #639896, $alpha: 1.0);
+    button {
+      background-color: rgba($color: #639896, $alpha: 1.0);
+    }
+
+    .description {
+      color: #ffffff;
+      padding: 20px;
+    }
+  }
+  .noPadding {
+    padding: 0;
+  }
+  .btnClicked {
+    background-color: #ffffff;
+    color: black;
+  }
+  .btnInList {
+    padding: 0;
+    text-align: center;
+    color: #ffffff;
+  }
+  .rowHeader {
+    background-color: rgba($color: #29292B, $alpha: 0.9);
+    color: white;
+    text-align: center;
+    height: 46px;
+    ion-col {
+      vertical-align: middle;
+      font-size: 1.2em;
+      font-weight: bold;
+      padding-top: 10px;
+    }
+  }
+  // Custom css for hotspot
+  .circleMarker:before {
+    content: ' \25CF';
+    font-size: 70px;
+    opacity: 0.5;
+  }
+  .circleMarker span {
+    visibility: visible;
+  }
+}

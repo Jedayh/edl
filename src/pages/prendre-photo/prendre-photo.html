@@ -1,0 +1,50 @@
+<ion-header>
+  <!--
+  <div class="tete">
+    <ion-icon name="ios-disc-outline"></ion-icon> ABC immoservices
+  </div>
+  -->
+  <div class="tete">
+    <img width="12%" height="auto" src="../../assets/imgs/logo.png">
+  </div>
+</ion-header>
+
+<ion-content padding class="content" [ngStyle]="{'background-image': 'url(' + salle.image + ')'}">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="background" col-md-12 col-sm-12>
+        <div class="row-center text_content">
+          <div>
+            <ion-list>
+              <ion-item style="width: 50%; margin: auto">
+                <ion-input style="width: 100px!important; text-align: center" [(ngModel)]="nomPiece" type="text" placeholder="Nom de la pièce" (focusout)="checkPieceNom()"></ion-input>
+              </ion-item>
+            </ion-list>
+          </div>
+          <div style="font-weight: bold;">
+            Prenez une photo de la pièce avec votre
+            camera 360°
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <div class="pied">
+    <ion-grid>
+      <ion-row>
+        <ion-col (click)="goToSalle()">
+          <ion-icon class="pager" name="arrow-round-back"></ion-icon>
+        </ion-col>
+        <button ion-button class="middle-btn" round outline (click)="newPicture()">Prendre une photo 360°</button>
+        <button ion-button class="middle-btn" round outline (click)="prendrePhotoDepuisTablette()">Prendre une photo avec la tablette</button>
+        <button ion-button class="middle-btn" round outline (click)="prendrePhoto()">Choisir une photo dans la galerie</button>
+        <ion-col>
+          <ion-icon class="pager" style="float: right;"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-footer>

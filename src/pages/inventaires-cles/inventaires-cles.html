@@ -1,0 +1,142 @@
+<ion-header>
+  <!--
+  <div class="tete">
+    <ion-icon name="ios-disc-outline"></ion-icon> ABC immoservices
+  </div>
+-->
+</ion-header>
+
+
+<ion-content class="body">
+
+  <div class="tete">
+    <img width="12%" height="auto" src="../../assets/imgs/logo.png">
+  </div>
+
+  <div class="corp">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="title uppercase">Inventaires des cles</ion-col>
+        <ion-col class="title uppercase">Nombre total de clés : {{inventaire.nbClesTotal}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="form" col-9>
+          <ngx-datatable #tab [headerHeight]="30" [rowHeight]="'auto'" [rows]="inventaire.list" [columnMode]="'force'" [limit]="100"
+            [rowClass]="getRowClass" style="width: 100%;">
+
+            <ngx-datatable-column name="Type" prop="type">
+              <ng-template let-column="column" ngx-datatable-header-template>
+                <span>Type de clé</span>
+              </ng-template>
+              <ng-template let-value="value" ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row">
+                <div><select (change)="updateValue('type', $event, rowIndex)">
+                  <option value=""></option>
+                  <option [selected]="value == 'Porte palière'" value="Porte palière">Porte palière</option>
+                  <option [selected]="value == 'Porte palière sécurisée'" value="Porte palière sécurisée">Porte palière sécurisée</option>
+                  <option [selected]="value == 'Boîtes aux lettres'" value="Boîtes aux lettres">Boîtes aux lettres</option>
+                  <option [selected]="value == 'Vigik'" value="Vigik">Vigik</option>
+                  <option [selected]="value == 'Bip émetteur'" value="Bip émetteur">Bip émetteur</option>
+                  <option [selected]="value == 'Commun'" value="Commun">Commun</option>
+                  <option [selected]="value == 'Verrou bas'" value="Verrou bas">Verrou bas</option>
+                  <option [selected]="value == 'Verrou haut'" value="Verrou haut">Verrou haut</option>
+                  <option [selected]="value == 'Cave'" value="Cave">Cave</option>
+                  <option [selected]="value == 'Garage'" value="Garage">Garage</option>
+                  <option [selected]="value == 'Immeuble'" value="Immeuble">Immeuble</option>
+                  <option [selected]="value == 'Local commun'" value="Local commun">Local commun</option>
+                  <option [selected]="value == 'Non identifié'" value="Non identifié">Non identifié</option>
+                  <option [selected]="value == 'Portail'" value="Portail">Portail</option>
+                  <option [selected]="value == 'Porte arrière'" value="Porte arrière">Porte arrière</option>
+                  <option [selected]="value == 'Porte accès cave'" value="Porte accès cave">Porte d'accès cave</option>
+                  <option [selected]="value == 'Porte accès garage'" value="Porte accès garage">Porte d'accès garage</option>
+                  <option [selected]="value == 'Portillon'" value="Portillon">Portillon</option>
+                  <option [selected]="value == 'SAS'" value="SAS">SAS</option>
+                  <option [selected]="value == 'Autre'" value="Autre">Autre</option>
+                </select></div>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Nombre" [width]="100" prop="nombre">
+              <ng-template let-column="column" ngx-datatable-header-template>
+                <div class="text-center"> Nombre </div>
+              </ng-template>
+              <ng-template let-value="value" ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row">
+                <div class="text-center">
+                  <input type="number" min="0" class="text-center" value="{{value}}" (keyup)="updateValue('nombre', $event, rowIndex)" style="border: 0px solid;height: 20px;width: 60px;" /></div>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Fonctionnement" prop="fonctionnement">
+              <ng-template let-column="column" ngx-datatable-header-template>
+                <span>Fonctionnement</span>
+              </ng-template>
+              <ng-template let-value="value" ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row">
+                <div><select (change)="updateValue('fonctionnement', $event, rowIndex)">
+                  <option value=""></option>
+                  <option [selected]="value == 'Fonctionne'" value="Fonctionne">Fonctionne</option>
+                  <option [selected]="value == 'Ne fonctionne pas'" value="Ne fonctionne pas">Ne fonctionne pas</option>
+                  <option [selected]="value == 'Non vérifiable'" value="Non vérifiable">Non vérifiable</option>
+                  <option [selected]="value == 'Autre'" value="Autre">Autre</option>
+                </select></div>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Obs" prop="obs">
+              <ng-template let-column="column" ngx-datatable-header-template>
+                <span> Observation </span>
+              </ng-template>
+              <ng-template let-value="value" ngx-datatable-cell-template let-rowIndex="rowIndex" let-row="row">
+                <div><input type="text" class="text-center" value="{{value}}" style="border: 0px solid;height: 20px;width: 100%;"
+                    placeholder="Votre observation ..." (keyup)="updateValue('obs', $event, rowIndex)" /></div>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column [width]="50">
+              <ng-template let-column="column" ngx-datatable-header-template>
+                Action
+              </ng-template>
+              <ng-template let-value="value" ngx-datatable-cell-template let-rowIndex="rowIndex">
+                <div *ngIf="rowIndex != 0">
+                  <a (click)="deleteKey(rowIndex)" class="delete">Supprimer</a>
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+
+          </ngx-datatable>
+        </ion-col>
+        <ion-col class="form">
+          <ion-row>
+            <ion-col> Observation </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="text-right">
+              <ion-textarea #msgInput rows="6" maxLength="255" style="background-color:#fff; color: #3b827e" [(ngModel)]="inventaire.observation"></ion-textarea>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col> Photo </ion-col>
+          </ion-row>
+          <ion-row class="addphoto" (click)="openCamera(1)">
+            <img src="{{ inventaire.image_inventaire_cle }}" alt="">
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div class="pied">
+    <ion-grid>
+      <ion-row>
+        <ion-col (click)="prev()">
+          <ion-icon class="pager" name="arrow-round-back"></ion-icon>
+        </ion-col>
+        <button *ngIf="numberPiece > 0" ion-button class="middle-btn" round outline (click)="goToListPieces()">Recapitulatif des pièces</button>
+        <button ion-button class="middle-btn" round outline (click)="addKey()">Ajouter une clé</button>
+        <ion-col (click)="next()">
+          <ion-icon class="pager" name="arrow-round-forward" style="float: right;"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-footer>

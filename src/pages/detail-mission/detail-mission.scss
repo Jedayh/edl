@@ -1,0 +1,79 @@
+page-detail-mission {
+    .body {
+    background-color: #3b827e;
+    color:#ffffff;
+    }
+
+    .tete {
+        //background-color: #689f9a;
+        background-color: #ffffff;
+        letter-spacing: 8px;
+        font-size: 14px;
+        //padding: 1.5em;
+        color: #ffffff;
+
+        * {
+            vertical-align: -webkit-baseline-middle;
+          }
+    }
+
+    .pied {
+        //background-color: #a5c5c2;
+        background-color: rgba($color: white, $alpha: 0.7);
+        //letter-spacing: 8px;
+        font-size: 18px;
+        color: #ffffff;
+
+        .pager {
+            border-radius: 30px;
+            padding: 0.1em 0.5em 0.1em 0.5em;
+        }
+
+        .pager:hover {
+            color: #ffffff;
+            background-color: #3b827e;
+        }
+        .middle-btn {
+            color: #3b827e;
+        }
+
+        ion-icon {
+            display: inline-block;
+            font-size: 1.8em !important;
+        }
+    }
+
+    ion-icon {
+        display: inline-block;
+        font-size: 1.8em !important;
+    }
+
+    .no_padding {
+        padding: 0 !important;
+        display: inline-block;
+    }
+
+    input {
+        width: 100%;
+        color: #3b827e;
+    }
+    ion-datetime {
+      background-color: #ffffff;
+      color: #3b827e;
+      width:100px;
+      height:18px;
+      text-align:center;
+    }
+    .datetime-md {
+        padding: 0 !important;
+    }
+    ion-select {
+      background-color: #ffffff;
+      color: #3b827e;
+      max-width: 100% !important;
+    }
+    .select-md {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}

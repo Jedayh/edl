@@ -1,0 +1,67 @@
+page-signature {
+  .body {
+    background-color: #3b827e;
+    color: #ffffff;
+    padding-left: 20%;
+  }
+
+  .tete {
+    background-color: #689f9a;
+    letter-spacing: 8px;
+    font-size: 14px;
+    padding: 1.5em;
+    color: #fff;
+    * {
+      vertical-align: -webkit-baseline-middle;
+    }
+  }
+
+  .pied {
+    background-color: #a5c5c2;
+    letter-spacing: 8px;
+    font-size: 14px;
+    color: #fff;
+
+    .pager {
+      border-radius: 30px;
+      padding: 0.1em 0.5em 0.1em 0.5em;
+    }
+
+    .pager:hover {
+      color: #fff;
+      background-color: #3b827e;
+    }
+
+    ion-icon {
+      display: inline-block;
+      font-size: 1.8em !important;
+    }
+  }
+
+  .text_center {
+    text-align: center;
+  }
+
+  .clear {
+    position: absolute;
+    color: #3b827e;
+    //right: 8px;
+    //top: 6px;
+    margin-top: 20px;
+    margin-left: -30px;
+    font-size: 1.8em;
+    cursor: pointer;
+  }
+
+  signature-pad {
+    canvas {
+      border: none;
+      //width: 100%;
+      width: 500px;
+      height: 300px;
+      background-color: #fff;
+      margin-top: 20px;
+      //margin-right: 10px;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<ion-header>
+  <div class="tete">
+    <img width="12%" height="auto" src="../../assets/imgs/logo.png">
+    <!-- <span style="padding-bottom: 20px"> ABC immoservices</span> -->
+  </div>
+</ion-header>
+<ion-content class="scroll-content transbox">
+
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <ion-list>
+          <ion-item class="Id">
+            <ion-input [(ngModel)]="login" type="text" placeholder="Identifiant"></ion-input>
+          </ion-item>
+
+          <ion-item class="mdp">
+            <ion-input [(ngModel)]="password" type="password" placeholder="Mot de passe"></ion-input>
+          </ion-item>
+          <button ion-button class="connexion" id="btn-connexion" (click)="connectUser()">Se connecter</button>
+        </ion-list>
+      </div>
+    </div>
+  </div>
+</ion-content>

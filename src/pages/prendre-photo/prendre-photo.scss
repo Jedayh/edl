@@ -1,0 +1,50 @@
+page-prendre-photo {
+    .tete {
+        //background-color: #689f9a;
+        background-color: #ffffff;
+        letter-spacing: 8px;
+        font-size: 14px;
+        //padding: 1.5em;
+        color: #fff;
+      }
+    .content{
+        // background-image: url('../assets/imgs/Login.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .text_content{
+        color: #ffffff;
+        text-align: center;
+        font-size: 28px;
+        margin-top: 30%;
+    }
+    .mdp{
+        margin-top: 10px;
+    }
+    .pied {
+        background-color: rgba($color: white, $alpha: 0.7);
+        //letter-spacing: 8px;
+        font-size: 18px;
+        color: #3b827e;
+        .pager {
+          border-radius: 30px;
+          padding: 0.1em 0.5em 0.1em 0.5em;
+        }
+        .pager:hover {
+          color: #fff;
+          background-color: #3b827e;
+        }
+        .middle-btn {
+            color: #3b827e;
+        }
+        ion-icon {
+          display: inline-block;
+          font-size: 1.8em !important;
+        }
+    }
+
+    .nomPieceInput {
+      width: 100px !important;
+      margin: auto !important;
+    }
+}

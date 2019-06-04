@@ -1,0 +1,71 @@
+page-resume-edl {
+    #panoresume {
+      height: 230px;
+    }
+    .fond {
+        margin-top:20px;
+        padding-top:10px;
+        padding-bottom:10px;
+        background-color: #EAE6DD;
+        background-size: cover;
+    }
+    #panoresume {
+        width: 100%;
+        height: 400px;
+    }
+    .tranparent {
+        background-color: rgba(255,255,255, 0.5);
+    }
+    .btncolor{
+        border:2px solid #639593;
+        color: #639593;
+        font-weight: 700;
+    }
+    .centrer{
+        text-align: center;
+    }
+    .pied {
+      background-color: #EFEFEF;
+      font-size: 18px;
+      color: #FF0046;
+      .pager {
+        border-radius: 30px;
+        padding: 0.1em 0.5em 0.1em 0.5em;
+      }
+      .pager:hover {
+        color: #fff;
+        background-color: #FF0046;
+      }
+      ion-icon {
+        display: inline-block;
+        font-size: 1.8em !important;
+      }
+    }
+    .margeinterne{
+        padding-top: 2%;
+        padding-bottom: 2%;
+    }
+    .pager{
+        color: #639593;
+
+    }
+    // Custom css for hotspot
+    .circleMarker:before {
+      content: ' \25CF';
+      font-size: 70px;
+      opacity: 0.5;
+    }
+    .circleMarker span {
+      visibility: visible;
+    }
+
+    .propre {
+      color: #639896;
+    }
+    .partiel {
+      color: #424242;
+    }
+    .nettoyer {
+      color: #FF0046;
+    }
+}

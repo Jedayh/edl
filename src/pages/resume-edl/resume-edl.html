@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-5>
+          <ion-title>Récapitulatif de la pièce "{{ nomPiece }}"</ion-title>
+        </ion-col>
+        <ion-col col-4 style="text-align: right; padding: 0 12px; font-size: 2rem; font-weight: 500;">
+          <span>Etat de la pièce : {{ etatPiece }}</span>
+        </ion-col>
+        <ion-col col-3 style="text-align: right; padding: 0 12px; font-size: 2rem; font-weight: 500;">
+          <ion-icon [ngClass]="[propretePiece == 'Propre' ? 'propre' : '',  propretePiece == 'Nettoyage partiel' ? 'partiel' : '',  propretePiece == 'A Nettoyer' ? 'nettoyer' : '']" ios="ios-checkmark-circle" md="md-checkmark-circle"></ion-icon>&nbsp;<span [ngClass]="[propretePiece == 'Propre' ? 'propre' : '',  propretePiece == 'Nettoyage partiel' ? 'partiel' : '',  propretePiece == 'A Nettoyer' ? 'nettoyer' : '']">{{ propretePiece }}</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="resumeedl">
+  <div id="panoresume"></div>
+  <div class="fond">
+    <resumelist *ngFor="let data of dataPanoArr" [dataPano]="data"></resumelist>
+  </div>
+  <br />
+</ion-content>
+<ion-footer>
+    <div class="pied">
+      <ion-grid>
+        <ion-row>
+          <ion-col (click)="goBack()">
+            <ion-icon class="pager" name="arrow-round-back"></ion-icon>
+          </ion-col>
+          <button ion-button round outline (click)="goBack()">Modifier cette pièce</button>
+          <button ion-button round outline (click)="goToSalle()">Passer à la pièce suivante</button>
+          <button ion-button round outline (click)="goToListPieces()">Recapitulatif des pièces</button>
+          <button ion-button color="danger" round outline (click)="terminerSigner()">Aller à l'étape de signature</button>
+        </ion-row>
+      </ion-grid>
+    </div>
+</ion-footer>

@@ -1,0 +1,215 @@
+<!--
+  Generated template for the SignaturePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <!--
+  <div class="tete">
+    <ion-icon name="ios-disc-outline"></ion-icon> ABC immoservices
+  </div>
+-->
+</ion-header>
+
+
+<ion-content class="body">
+
+  <div class="tete">
+    <img width="12%" height="auto" src="../../assets/imgs/logo.png">
+    <span style="padding-bottom: 20px">ABC immoservices</span>
+  </div>
+
+  <div class="corp">
+    <ion-grid>
+      <ion-row>
+        <ion-col>Nom du locataire</ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <span style="background-color: #ffffff; color: #649896; padding: .3em 1em;">{{detailMission.loc_nomcomplet}}</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+    <ion-grid *ngIf="!localCommercial">
+      <ion-row><ion-col>Le présent état des lieux a été établi par la société ABC IMMODIAG, Société à responsabilité limitée immatriculée au Registre du Commerce et des Sociétés de Nantes sous le numéro 495 006 835 et dont le siège social est situé au 39, Rue de la Bastille 44000 NANTES.</ion-col></ion-row>
+
+      <ion-row><ion-col>La société ABC IMMODIAG a été expressément mandatée par le bailleur ou son représentant aux fins d’établir le présent état des lieux.</ion-col></ion-row>
+
+      <ion-row><ion-col>La société ABC IMMODIAG présente toutes les garanties d’indépendance lui permettant de réaliser le présent état des lieux en parfaite objectivité, de manière contradictoire et amiable avec le preneur ou son représentant lors de la remise ou de la restitution des clés.</ion-col></ion-row>
+
+      <ion-row><ion-col>Le bailleur et le preneur, ou leur représentant, déclarent que le procédé photographique mis en œuvre par la société ABC IMMODIAG pour l’établissement du présent état des lieux permet une transcription sincère et exacte de l’apparence des lieux visités.</ion-col></ion-row>
+
+      <ion-row><ion-col>Les Parties acceptent et reconnaissent que l’absence de mention portée une photographie figurant à l’état des lieux signifie de manière claire et non équivoque que l’élément représenté est NEUF ou en BON ETAT.</ion-col></ion-row>
+
+      <ion-row><ion-col>Tout élément qui ne correspondrait pas à un état NEUF ou en BON ETAT ou tout autre fait notable sur l’état des lieux fera l’objet d’une mention expresse de la part de la société ABC IMMODIAG.</ion-col></ion-row>
+
+      <ion-row><ion-col>Pour l’établissement de l’état des lieux, les parties acceptent et reconnaissent la définition des termes suivants :
+        <ul>
+          <li>NEUF : état neuf, parfait, jamais habité ou entièrement et parfaitement refait ;</li>
+          <li>BON ETAT : état général très approchant du neuf mais portant des traces d’usures et de vieillissement très légères ;</li>
+          <li>MOYEN : état portant des traces d’usures et de vieillissement ;</li>
+          <li>USAGE AVANCE : état laissant apparaître un vieillissement prononcé, pouvant nécessiter une remise en état ;</li>
+          <li>DEGRADE : défauts d’entretiens apparents ou détériorations apparentes, nécessitant une remise en état même partielle de l’élément.</li>
+        </ul>
+      </ion-col></ion-row>
+
+      <ion-row><ion-col>Les Parties reconnaissent que la société ABC IMMODIAG ne serait être tenue responsable de l’absence de constatations portant sur des éléments dans les lieux non visibles ou dissimulés par des objets fixes ou par des objets lourds ou imposants.<br />
+      L’état des lieux est dressé contradictoirement par la société ABC IMMODIAG sur un support numérique.</ion-col></ion-row>
+
+      <ion-row><ion-col>Le Preneur a la faculté de revoir intégralement l’état des lieux sur le support numérique mis à sa disposition et de solliciter toutes modifications qu’il jugerait utile avant de signer le document de manière électronique.</ion-col></ion-row>
+
+      <ion-row><ion-col>Le bailleur et le preneur reconnaissent que le présent état des lieux a été réalisé conformément aux dispositions de l’article 3-2 de la loi n°89-462 du 6 juillet 1989 tendant à améliorer les rapports locatifs et portant modification de la loi n°86-1290 du 23 décembre 1986.</ion-col></ion-row>
+
+      <ion-row><ion-col>Le bailleur déclare être parfaitement informé qu’aux termes de ces dispositions, il est en droit de :<br />
+      « demander au bailleur ou à son représentant de compléter l'état des lieux d'entrée dans un délai de dix jours à compter de son établissement. Si cette demande est refusée, le locataire peut saisir la commission départementale de conciliation territorialement compétente.<br />
+      Pendant le premier mois de la période de chauffe, le locataire peut demander que l'état des lieux soit complété par l'état des éléments de chauffage.<br />
+      Le propriétaire ou son mandataire complète les états des lieux d'entrée et de sortie par les relevés des index pour chaque énergie, en présence d'une installation de chauffage ou d'eau chaude sanitaire individuelle, ou collective avec un comptage individuel. L'extrait de l'état des lieux correspondant est mis à la disposition de la personne chargée d'établir le diagnostic de performance énergétique prévu à l'article L. 134-1 du code de la construction et de l'habitation qui en fait la demande, sans préjudice de la mise à disposition des factures ».</ion-col></ion-row>
+
+      <ion-row><ion-col>Il est encore parfaitement admis par le bailleur et le preneur que le présent état des lieux a été dressé en parfait respect avec les termes du Décret n°2016-382 du 30 mars 2016 fixant les modalités d’établissement de l’état des lieux et de prise en compte de la vétusté des logements loués à usage de résidence principale et notamment de son article 2 lequel stipule que :<br />
+      « L'état des lieux décrit le logement et constate son état de conservation. Il comporte au moins les informations suivantes :<br />
+      <ol>
+        <li>
+          A l'entrée et à la sortie du logement :
+          <ol>
+            <li>Le type d'état des lieux : d'entrée ou de sortie ;</li>
+            <li>Sa date d'établissement ;</li>
+            <li>La localisation du logement ;</li>
+            <li>Le nom ou la dénomination des parties et le domicile ou le siège social du bailleur ;</li>
+            <li>Le cas échéant, le nom ou la dénomination et le domicile ou le siège social des personnes mandatées pour réaliser l'état des lieux ;</li>
+            <li>Le cas échéant, les relevés des compteurs individuels de consommation d'eau ou d'énergie ;</li>
+            <li>Le détail et la destination des clés ou de tout autre moyen d'accès aux locaux à usage privatif ou commun ;</li>
+            <li>Pour chaque pièce et partie du logement, la description précise de l'état des revêtements des sols, murs et plafonds, des équipements et des éléments du logement. Il peut être complété d'observations ou de réserves et illustré d'images ;</li>
+            <li>La signature des parties ou des personnes mandatées pour réaliser l'état des lieux ;</li>
+          </ol>
+        </li>
+        <li>
+          A la sortie du logement :
+          <ol>
+            <li>L'adresse du nouveau domicile ou du lieu d'hébergement du locataire ;</li>
+            <li>La date de réalisation de l'état des lieux d'entrée (si cette dernière est communiquée par l’un des parties);</li>
+            <li>Eventuellement, les évolutions de l'état de chaque pièce et partie du logement constatées depuis l'établissement de l'état des lieux d'entrée ».</li>
+          </ol>
+        </li>
+      </ol>
+      </ion-col></ion-row>
+
+      <ion-row><ion-col>L’état des lieux est établi sur support numérique, et est remis en autant d’exemplaires que de parties.</ion-col></ion-row>
+
+      <ion-row><ion-col>Pour le preneur, le dit exemplaire sous format numérique lui sera remis par un courrier électronique avec accusé d’envoi à l’adresse électronique communiquée par lui, dans un délai de 48 heures après le rendez-vous d’état des lieux.</ion-col></ion-row>
+
+      <ion-row><ion-col>Le preneur certifie l’exactitude et la validité de l’adresse électronique déclarée par lui et ne pourra tenir pour responsable la société ABC IMMODIAG de l’absence de due réception en raison de sa défaillance.</ion-col></ion-row>
+
+      <ion-row><ion-col>En tout état de cause, le preneur s’engage à vérifier la bonne réception de l’état des lieux et d’avertir immédiatement la société IMODIAG, en cas de bonne réception.</ion-col></ion-row>
+
+      <ion-row><ion-col>L’état des lieux est annexé au contrat de location par la partie la plus diligente.</ion-col></ion-row>
+
+      <ion-row><ion-col>Après la remise des exemplaires à chacune des parties, la société ABC IMMODIAG ne conserve pas de copie de l’état des lieux, qui ne pourra pas donner lieu à une nouvelle remise.</ion-col></ion-row>
+
+      <ion-row><ion-col>Les informations et données recueillies lors de l’état des lieux assuré par la société ABC IMMODIAG pourront être conservées sur support dématérialisé pendant une durée maximale de trois ans.</ion-col></ion-row>
+
+      <ion-row><ion-col>La société ABC IMMODIAG reconnaît que la conservation de ces informations ne pourra excéder ce délai et que toutes les mesures techniques et organisationnelles seront prises par elle pour assurer un archivage sécurisé, et en accès restreint, en conformité avec les nouvelles obligations en matière de protection des données personnelles issues du Règlement de l’Union européenne n°2016/679 dit RGPD.</ion-col></ion-row>
+    </ion-grid>
+
+    <ion-grid *ngIf="localCommercial">
+      <ion-row><ion-col>Le présent état des lieux a été établi par la société ABC IMMODIAG, Société à responsabilité limitée immatriculée au Registre du Commerce et des Sociétés de Nantes sous le numéro 495 006 835 et dont le siège social est situé au 39, Rue de la Bastille 44000 NANTES.</ion-col></ion-row>
+
+      <ion-row><ion-col>La société ABC IMMODIAG a été expressément mandatée par le bailleur ou son représentant aux fins d’établir le présent état des lieux.</ion-col></ion-row>
+
+      <ion-row><ion-col>La société ABC IMMODIAG présente toutes les garanties d’indépendance lui permettant de réaliser le présent état des lieux en parfaite objectivité, de manière contradictoire et amiable avec le preneur ou son représentant lors de la remise ou de la restitution des clés.</ion-col></ion-row>
+
+      <ion-row><ion-col>Le bailleur et le preneur, ou leur représentant, déclarent que le procédé photographique mis en œuvre par la société ABC IMMODIAG pour l’établissement du présent état des lieux permet une transcription sincère et exacte de l’apparence des lieux visités.</ion-col></ion-row>
+
+      <ion-row><ion-col>Les Parties acceptent et reconnaissent que l’absence de mention portée une photographie figurant à l’état des lieux signifie de manière claire et non équivoque que l’élément représenté est NEUF ou en BON ETAT.</ion-col></ion-row>
+
+      <ion-row><ion-col>Tout élément qui ne correspondrait pas à un état NEUF ou en BON ETAT ou tout autre fait notable sur l’état des lieux fera l’objet d’une mention expresse de la part de la société ABC IMMODIAG.</ion-col></ion-row>
+
+      <ion-row><ion-col>Pour l’établissement de l’état des lieux, les parties acceptent et reconnaissent la définition des termes suivants :
+        <ul>
+          <li>NEUF : état neuf, parfait, jamais habité ou entièrement et parfaitement refait ;</li>
+          <li>BON ETAT : état général très approchant du neuf mais portant des traces d’usures et de vieillissement très légères ;</li>
+          <li>ETAT MOYEN : état portant des traces d’usures et de vieillissement ;</li>
+          <li>USAGE AVANCE : état laissant apparaître un vieillissement prononcé, pouvant nécessiter une remise en état ;</li>
+          <li>DEGRADE : défauts d’entretiens apparents ou détériorations apparentes, nécessitant une remise en état même partielle de l’élément.</li>
+        </ul>
+      </ion-col></ion-row>
+
+      <ion-row><ion-col>L’état des lieux est dressé contradictoirement par la société ABC IMMODIAG sur un support numérique.</ion-col></ion-row>
+
+      <ion-row><ion-col>Le Preneur a la faculté de revoir intégralement l’état des lieux sur le support numérique mis à sa disposition et de solliciter toutes modifications qu’il jugerait utile avant de signer le document de manière électronique.</ion-col></ion-row>
+
+      <ion-row><ion-col>L’état des lieux est établi sur support numérique, il est remis sous ce format numérique au preneur [par la mise à disposition d’un lien ou par courrier électronique] et est édité en autant d’exemplaires papier que de parties, dont un est remis au preneur.</ion-col></ion-row>
+
+      <ion-row><ion-col>Il est annexé au contrat de location.</ion-col></ion-row>
+
+      <ion-row><ion-col>La société ABC IMMODIAG conserve une copie de l’état des lieux sur support dématérialisé pendant [la durée du bail]</ion-col></ion-row>
+
+      <ion-row><ion-col>La société ABC IMMODIAG reconnaît que la conservation de ce support dématérialisé ne pourra excéder la durée du bail [ou autre délai prévu] et que toutes les mesures techniques et organisationnelles seront prises par elle pour assurer un archivage sécurisé, et en accès restreint, en conformité avec les nouvelles obligations en matière de protection des données personnelles issues du Règlement de l’Union européenne n°2016/679 dit RGPD.</ion-col></ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col col-10>
+          Observations générales
+          <ion-textarea rows="6" style="background-color:#fff; color: #3b827e;width:100%;" [(ngModel)]="observation"></ion-textarea>
+        </ion-col>
+        <ion-col col-10>
+          <ion-checkbox color="primary" [(ngModel)]="elementsCachesParMeubles"></ion-checkbox> Etat des lieux sous réserve de la découverte d’anomalies sur des parties non visibles et non accessibles car effectué en la présence de meuble(s).
+        </ion-col>
+        <ion-col col-10>
+          <ion-checkbox color="primary" [(ngModel)]="pasElectricite"></ion-checkbox> Etat des lieux sous réserve de la découverte d’anomalies car effectué sans électricité et donc partiellement dans la pénombre. Les éléments d’éclairages et électriques dans leur globalités n’ont donc pu être testés.
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-10>
+          Paraphes<br/>
+          <signature-pad #paraphe [options]="signaturePadOptions" id="paraphe"></signature-pad>
+          <ion-icon name="close-circle" class="clear" (click)="drawClear('paraphe')"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-10>
+          Signatures <ion-icon style="color:#ffffff" name="ios-information-circle-outline"></ion-icon>
+          <span style="color:#a5c5c2"> signer ci-dessous avec un pen ou avec le doigt. </span>
+        </ion-col>
+      </ion-row>
+      <ion-row class="text-center">
+        <div style="margin-right:20px;">
+          <signature-pad #signatureProp [options]="signaturePadOptions" id="signatureProp"></signature-pad>
+          <ion-icon name="close-circle" class="clear" (click)="drawClear()"></ion-icon>
+          <br>Pour le propriétaire
+        </div>
+
+        <div *ngFor="let item of locat; let index = index;" style="margin-right:20px">
+          <signature-pad #signatureLoc [options]="signaturePadOptions" id="signatureLoc{{item.id}}"></signature-pad>
+          <ion-icon name="close-circle" class="clear" (click)="drawClear('true', index)"></ion-icon>
+          <br>Le locataire
+          <br>{{ item.nom }}
+          <br> &nbsp;
+          <br> &nbsp;
+          <br> &nbsp;
+        </div>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div class="pied">
+    <ion-grid>
+      <ion-row>
+        <ion-col (click)="goToResume()">
+          <ion-icon class="pager" name="arrow-round-back"></ion-icon>
+        </ion-col>
+        <button ion-button round outline (click)="addSignature()">Ajouter un signataire</button>
+        <button ion-button color="danger" round outline (click)="goToHome()">Valider cet état des lieux</button>
+
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-footer>

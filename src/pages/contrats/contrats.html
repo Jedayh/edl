@@ -1,0 +1,252 @@
+<ion-header>
+</ion-header>
+
+
+<ion-content class="body">
+
+  <div class="tete">
+    <img width="12%" height="auto" src="../../assets/imgs/logo.png">
+    <span style="padding-bottom: 20px"> ABC immoservices</span>
+  </div>
+
+  <div class="corp">
+    <ion-grid>
+      <ion-row style="border-bottom: 1px solid;">
+        <ion-col class="title uppercase">CONTRATS OU RAPPORTS D'ENTRETIEN</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-7 class="title">
+          <ion-row>
+            <ion-col col-3> Chaudière </ion-col>
+            <ion-toggle checked="false" [(ngModel)]="contrat.chaudiere"></ion-toggle>
+            <span style="padding: .8em .1em; color: rgba(255, 255, 255, 0.46);"> En service </span>
+            <ion-col col-6></ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col col-5 class="title" style="padding-left: 0;"> Rapport d'entretien </ion-col>
+      </ion-row>
+
+      <ion-row class="form">
+        <ion-col col-2 class="addphoto" (click)="openCamera(1)" [ngClass]="{'disableImg': !contrat.chaudiere}">
+          <img src="{{ contrat.chaudierePhoto }}" alt="">
+        </ion-col>
+        <ion-col col-5>
+          <ion-row>
+            <ion-col col-6> Marque </ion-col>
+            <ion-col col-6 class="text-right">
+              <input type="text" [(ngModel)]="contrat.chaudiereMarque" [disabled]="!contrat.chaudiere" />
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6> Entretien effectué </ion-col>
+            <ion-col col-6>
+              <ion-select interface="popover" [(ngModel)]="contrat.chaudiereEntretienEffectue" style="width:100%" [disabled]="!contrat.chaudiere">
+                <ion-option value="0"> Oui </ion-option>
+                <ion-option value="1"> Non </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6> Etat extérieur visuel </ion-col>
+            <ion-col col-6>
+              <ion-select interface="popover" [(ngModel)]="contrat.chaudiereEtat" style="width:100%" [disabled]="!contrat.chaudiere">
+                <ion-option value="Neuf"> Neuf </ion-option>
+                <ion-option value="Bon état"> Bon état </ion-option>
+                <ion-option value="Moyen"> Moyen </ion-option>
+                <ion-option value="Avancé"> Avancé </ion-option>
+                <ion-option value="Dégradé"> Dégradé </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6> Ajouter une observation </ion-col>
+            <ion-col col-6 class="text-right">
+              <input type="text" [(ngModel)]="contrat.chaudiereObservation" [disabled]="!contrat.chaudiere" />
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col col-2 class="addphoto" (click)="openCamera(2)">
+          <img src="{{ contrat.rapportEntretienPhoto }}" alt="">
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-7 class="title">
+          <ion-row>
+            <ion-col col-3> Cumulus </ion-col>
+            <ion-toggle checked="false" [(ngModel)]="contrat.cumulus"></ion-toggle>
+            <span style="padding: .8em .1em; color: rgba(255, 255, 255, 0.46);"> En service </span>
+            <ion-col col-6></ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="form">
+        <ion-col col-2 class="addphoto" (click)="openCamera(5)" [ngClass]="{'disableImg': !contrat.cumulus}">
+          <img src="{{ contrat.cumulusPhoto }}" alt="">
+        </ion-col>
+        <ion-col col-5>
+          <ion-row>
+            <ion-col col-6> Marque </ion-col>
+            <ion-col col-6 class="text-right">
+              <input type="text" [(ngModel)]="contrat.cumulusMarque" [disabled]="!contrat.cumulus" />
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6> Etat extérieur visuel </ion-col>
+            <ion-col col-6>
+              <ion-select interface="popover" [(ngModel)]="contrat.cumulusEtat" style="width:100%" [disabled]="!contrat.cumulus">
+                <ion-option value="Neuf"> Neuf </ion-option>
+                <ion-option value="Bon état"> Bon état </ion-option>
+                <ion-option value="Moyen"> Moyen </ion-option>
+                <ion-option value="Avancé"> Avancé </ion-option>
+                <ion-option value="Dégradé"> Dégradé </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6> Fonctionnement </ion-col>
+            <ion-col col-6>
+              <ion-select interface="popover" [(ngModel)]="contrat.cumulusFonctionnement" style="width:100%" [disabled]="!contrat.cumulus">
+                <ion-option value="Fonctionne"> Fonctionne </ion-option>
+                <ion-option value="Ne fonctionne pas"> Ne fonctionne pas </ion-option>
+                <ion-option value="Non vérifiable"> Non vérifiable </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6> Observations </ion-col>
+            <ion-col col-6 class="text-right">
+              <input type="text" [(ngModel)]="contrat.cumulusObservation" [disabled]="!contrat.cumulus" />
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="title"> Attestation d'assurance </ion-col>
+      </ion-row>
+      <ion-row class="form">
+        <ion-col col-2 class="addphoto" (click)="openCamera(3)">
+          <img src="{{ contrat.attestationPhoto }}" alt="">
+        </ion-col>
+        <ion-col col-5>
+          <ion-row>
+            <ion-col col-6> Compagnie d'assurance </ion-col>
+            <ion-col col-6 class="text-right">
+              <input type="text" [(ngModel)]="contrat.attestationAssurance" />
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6> Date d'effet du contrat </ion-col>
+            <ion-col col-6 class="text-right">
+              <ion-datetime [(ngModel)]="contrat.attestationDateAssurance" doneText="Définir" cancelText="Annuler" displayFormat="DD/MM/YYYY"></ion-datetime>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-6> N° contrat </ion-col>
+            <ion-col col-6 class="text-right">
+              <input [(ngModel)]="contrat.attestationNumeroContrat" type="text" />
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+
+      <!-- Detecteur de fumé -->
+      <ion-row style="border-bottom: 1px solid;">
+        <ion-col class="title uppercase"> Detecteur de fumée </ion-col>
+      </ion-row>
+
+      <ion-row class="form">
+        <ion-col col-7 class="no-padding">
+          <ion-row>
+            <ion-col> Présence d'un détécteur de fumée </ion-col>
+            <ion-toggle checked="false" [(ngModel)]="contrat.detecteurFumee"></ion-toggle>
+            <span style="padding: .8em .1em; color: rgba(255, 255, 255, 0.46);">oui</span>
+            <ion-col col-6></ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col>
+          <ion-row></ion-row>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="form">
+        <ion-col col-2 class="addphoto" (click)="openCamera(4)" [ngClass]="{'disableImg': !contrat.detecteurFumee}">
+          <img src="{{ contrat.detecteurFumeePhoto }}" alt="">
+        </ion-col>
+        <ion-col col-3>
+          <ion-row>
+            <ion-col class="text-right">
+              <label class="title"> Etat </label>
+            </ion-col>
+            <ion-col>
+              <ion-select interface="popover" [(ngModel)]="contrat.detecteurFumeeEtat" style="width:100%" [disabled]="!contrat.detecteurFumee">
+                <ion-option value="Neuf"> Neuf </ion-option>
+                <ion-option value="Bon état"> Bon état </ion-option>
+                <ion-option value="Moyen"> Moyen </ion-option>
+                <ion-option value="Avancé"> Avancé </ion-option>
+                <ion-option value="Dégradé"> Dégradé </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="text-right">
+              <label class="title"> Contrôle </label>
+            </ion-col>
+            <ion-col>
+              <ion-select interface="popover" [(ngModel)]="contrat.detecteurFumeeControle" (ionChange)="updateFonctionnement()" style="width:100%" [disabled]="!contrat.detecteurFumee">
+                <!-- <ion-option value="f"> Contrôlé </ion-option>
+                <ion-option value="m"> Non contrôlable </ion-option> -->
+                <ion-option value="Contrôlé"> Contrôlé </ion-option>
+                <ion-option value="Non contrôlable"> Non contrôlable </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="text-right">
+              <label class="title"> Fonctionnement </label>
+            </ion-col>
+            <ion-col>
+              <ion-select interface="popover" [(ngModel)]="contrat.detecteurFumeeFonctionnement" style="width:100%" [disabled]="!contrat.detecteurFumee">
+                <ion-option value="Fonctionne"> Fonctionne </ion-option>
+                <ion-option value="Ne fonctionne pas"> Ne fonctionne pas </ion-option>
+                <ion-option value="Non vérifiable"> Non vérifiable </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="text-right">
+              <label class="title"> Localisation </label>
+            </ion-col>
+            <ion-col>
+              <input type="text" [(ngModel)]="contrat.detecteurFumeeLocalisation" [disabled]="!contrat.detecteurFumee" />
+            </ion-col>
+          </ion-row>
+        </ion-col>
+
+        <ion-col col-4>
+          <ion-textarea #msgInput rows="5" maxLength="255" style="background-color:#fff; color: #3b827e;width:350px;" [(ngModel)]="contrat.detecteurFumeeObservation" [disabled]="!contrat.detecteurFumee" placeholder="Observations..."></ion-textarea>
+        </ion-col>
+
+      </ion-row>
+
+    </ion-grid>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div class="pied">
+    <ion-grid>
+      <ion-row>
+        <ion-col (click)="prev()">
+          <ion-icon class="pager" name="arrow-round-back"></ion-icon>
+        </ion-col>
+        <ion-col></ion-col>
+        <ion-col (click)=" next()">
+          <ion-icon class="pager" name="arrow-round-forward" style="float: right;"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-footer>

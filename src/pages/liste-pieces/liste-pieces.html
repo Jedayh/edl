@@ -1,0 +1,86 @@
+<ion-header>
+    <ion-grid>
+      	<ion-row>
+			<ion-col col-1 (click)="goBack()">
+				<ion-icon name="arrow-round-back" style="font-size: 30px"></ion-icon>
+			</ion-col>
+        	<ion-col col-10>
+          <ion-title style="margin-left: -50px;">Liste des pièces</ion-title>
+        </ion-col>
+      	</ion-row>
+    </ion-grid>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+    <div ion-item *ngFor="let piece of dataPieces" style="background-color: #639593; margin-bottom: 25px;color:white;font-size: 20px;">
+		<h2>{{ piece.typePiece }} : {{ piece.nomPiece }} </h2>
+
+		<div id="btn-close">
+			<div *ngIf="piece.expanded === true" style="color: #EFEFEF;font-size: 20px;margin-top:2px;">{{ piece.propretePiece }}
+			<span style="margin-left: 4px;padding-top: 10px;" (click)="closeDefaut(piece)"><ion-icon style="color:red;font-size: 30px;" name="close"></ion-icon></span>
+			</div>
+		</div>
+		<expandable [expanded]="piece.expanded">
+			<!--
+			<div *ngIf="piece.expanded" id="panoresumeRecap" style="margin-top: 20px"></div>
+			-->
+			<ng-container *ngFor="let datapano of piece.defautPiece" style="background-color: #EAE6DD;">
+			<ion-grid>
+				<ion-row>
+					<ion-col col-sm-5 col-md-3 col-3>
+						<ion-grid>
+							<ion-row class="thumbnail-resume-liste">
+								<ion-col width-50 height-50 *ngIf="datapano.image1">
+									<img src="../../assets/imgs/add_photo.png" alt="" />
+								</ion-col>
+								<ion-col width-50 height-50 *ngIf="datapano.image2">
+									<img src="../../assets/imgs/add_photo.png" alt="" />
+								</ion-col>
+								<ion-col width-50 height-50 *ngIf="datapano.image3">
+									<img src="../../assets/imgs/add_photo.png" alt="" />
+								</ion-col>
+							</ion-row>
+						</ion-grid>
+
+					</ion-col>
+					<ion-col col-sm-12 col-md-9 col-9>
+						<ion-row class="detail">
+							<ion-col col-md-9 col-9>
+								<p class="detail-child" [innerHTML]="datapano.displayedDescription">
+
+								</p>
+							</ion-col>
+						</ion-row>
+						<ion-row class="detail" *ngIf="datapano.observation !==''" >
+						<ion-col col-md-9 col-9>
+							<p  class="detail-child">
+							{{ datapano.observation }}
+							</p>
+						</ion-col>
+						</ion-row>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ng-container>
+		<button ion-button round outline (click)="goToUpdate(piece.nomPiece, piece.typePiece)" style="background-color: #EAE6DD;">Modifier cette pièce</button>
+		<button ion-button round outline (click)="confirmDeletePiece(piece.pieceId, piece.nummission)" style="background-color: #EAE6DD;">Supprimer cette pièce</button>
+		</expandable>
+		<p *ngIf="piece.expanded === false" style="color: #EFEFEF;font-size: 20px;" item-end>{{ piece.propretePiece }}</p>
+		<button *ngIf="piece.expanded === false" (click)="openDefaut(piece)" ion-button clear item-end><ion-icon style="color: #EFEFEF;font-size: 30px;" name="arrow-dropdown" float-right></ion-icon></button>
+    </div>
+	</ion-list>
+</ion-content>
+<ion-footer>
+    <div class="pied">
+      <ion-grid>
+        <ion-row>
+          <ion-col (click)="goBack()">
+            <ion-icon class="pager" name="arrow-round-back"></ion-icon>
+          </ion-col>
+          <button ion-button round outline (click)='goToSalle()'>Ajouter une nouvelle piéce</button>
+          <button ion-button color="danger" round outline (click)="terminerSigner()">Aller à l'étape de signature</button>
+        </ion-row>
+      </ion-grid>
+    </div>
+</ion-footer>

@@ -1,0 +1,116 @@
+<ion-content>
+  <ion-grid>
+
+    <ion-row class="rowTitle">
+      <ion-col col-sm-8 >
+        <div class="titre">Nom de la pièce : {{this.nomPiece}}</div>
+      </ion-col>
+      <ion-col col-sm-2>
+        <ion-select class="propreteSelector" interface="popover" [(ngModel)]="etatPiece" placeholder="Etat de la pièce">
+          <ion-option value="Neuf"> Neuf </ion-option>
+          <ion-option value="Bon état"> Bon état </ion-option>
+          <ion-option value="Moyen"> Moyen </ion-option>
+          <ion-option value="Mauvais"> Mauvais </ion-option>
+        </ion-select>
+      </ion-col>
+      <ion-col col-sm-2>
+          <input type="hidden" value="{{stateInsert}}" [(ngModel)]="stateInsert" />
+        <ion-select class="propreteSelector" interface="popover" [(ngModel)]="propretePiece" placeholder="Propreté de la pièce">
+          <ion-option value="Propre"> Propre </ion-option>
+          <ion-option value="Nettoyage partiel"> Nettoyage partiel </ion-option>
+          <ion-option value="A Nettoyer"> A Nettoyer </ion-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-sm-11 ion-col-auto class="__no_padding">
+        <div id="selectionDefaut" (press)="putMarker($event)" [class.markerAdded]="showFields"></div>
+      </ion-col>
+      <ion-col col-sm-1>
+        <div class="imgC addphoto" *ngIf="showFields">
+            <img src="{{ image1 }}" style="width: 100%; height: 33,33333%;" (click)="openCamera(1)">
+        </div>
+        <div class="imgC addphoto" *ngIf="showFields">
+            <img src="{{ image2 }}" style="width: 100%; height: 33,33333%;" (click)="openCamera(2)">
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="!showFields">
+      <ion-col col-sm-10 align-center class="help">
+        Appuyer sur la photo jusqu'à apparition d'un marqueur pour ajouter un défaut.<br />
+        Appuyez sur un défaut existant pour le modifier ou le supprimer.
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="rowHeader" *ngIf="showFields">
+      <ion-col col-md-6 align-center>
+        Types défauts
+      </ion-col>
+
+      <ion-col col-md-6 align-center>
+        Description des défauts
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngIf="showFields">
+      <ion-col col-md-6 align-center class="noPadding listeDefauts">
+        <ion-grid class="noPadding">
+          <ion-row>
+            <!-- Liste des types de défauts -->
+            <ion-col col-md-6 class="noPadding">
+              <ion-list no-lines>
+                <button ion-item *ngFor="let type of types" (click)="typePressed(type)" [class.btnInList]="!type.selected"
+                  [class.sectionSelected]="type.selected">
+                  {{ type.name }}
+                </button>
+              </ion-list>
+            </ion-col>
+
+            <!-- Sous catégories des types de défauts -->
+            <ion-col col-md-6 class="__no_padding" *ngIf="btnClicked" [class.whiteBackground]="btnClicked">
+              <ion-list no-lines class="scrollContent">
+                <button (click)="catEnfantPressed(cat)" ion-item *ngFor="let cat of sousCategories" [class.whiteBackground]="bgIsWhite">
+                  {{ cat.name }}
+                  <ion-icon *ngIf="cat.selected" style="float: right; color: red;" name="ios-remove-circle-outline"></ion-icon>
+                  <ion-icon *ngIf="!cat.selected" style="float: right; color: green;" name="ios-add-circle-outline"></ion-icon>
+                </button>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+
+      <!-- Description des défauts -->
+      <ion-col col-md-6 align-center class="noPadding listeDefauts">
+        <p class="description" style="border: 1px solid;margin: 10px 20px 0 20px;" [innerHTML]="displayedDescription">
+
+        </p>
+        <p class="description">
+          <ion-textarea #msgInput rows="5" maxLength="255" style="background-color:#fff; color: #3b827e;width: 100%;height: 150px;" [(ngModel)]="observation" placeholder="Observations générales du défaut..."></ion-textarea>
+        </p>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <div class="pied">
+    <ion-grid>
+      <ion-row>
+        <ion-col (click)="goBack()">
+          <ion-icon class="pager" name="arrow-round-back" *ngIf="!showFields"></ion-icon>
+        </ion-col>
+        <!--
+        <button ion-button round outline (click)="goToListPieces()">Recapitulatif des pièces</button>
+        -->
+        <button ion-button color="danger" hide round outline (click)="cancelDefault()" *ngIf="showFields">Annuler</button>
+        <button ion-button color="danger" hide round outline (click)="deleteDefault()" *ngIf="showFields">Supprimer le défaut</button>
+        <button ion-button hide round outline (click)="presentConfirm()" *ngIf="showFields">Valider le défaut</button>
+        <button ion-button hide round outline (click)="goToResume()" *ngIf="!showFields">Valider cette pièce</button>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-footer>

@@ -1,0 +1,42 @@
+<ion-card>
+    <ion-card-header class="color" (click)="toggleResumelist()">
+        {{ dataPano.idDefaut }}
+        <ion-icon name="arrow-dropdown" float-right></ion-icon>
+    </ion-card-header>
+    <ion-card-content #lc>
+        <ion-grid>
+            <ion-row>
+                <ion-col col-sm-5 col-md-3 col-3>
+                    <ion-grid>
+                        <ion-row class="thumbnail-resume-liste">
+                            <ion-col width-50 height-50 *ngIf="dataPano.image1">
+                                <img src="{{dataPano.image1}}" alt="" />
+                            </ion-col>
+                            <ion-col width-50 height-50 *ngIf="dataPano.image2">
+                                <img src="{{dataPano.image2}}" alt="" />
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-col>
+
+                <ion-col col-sm-12 col-md-9 col-9>
+                    <ion-row class="detail">
+                        <ion-col col-md-9 col-9>
+                            <p class="detail-child" [innerHTML]="dataPano.displayedDescription">
+
+                            </p>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row class="detail">
+                      <ion-col col-md-9 col-9>
+                        <p class="detail-child">
+                          {{ dataPano.observation }}
+                        </p>
+                      </ion-col>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card-content>
+</ion-card>

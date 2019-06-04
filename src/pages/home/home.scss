@@ -1,0 +1,164 @@
+page-home {
+  .body {
+    background-color: #e9505f;
+    color: #ffffff;
+  }
+
+  .tete {
+    background-color: #ffffff;
+    //background-color: #ee7881;
+    letter-spacing: 8px;
+    font-size: 14px;
+    //padding: 1.2em;
+    color: #ffffff;
+    * {
+      vertical-align: -webkit-baseline-middle;
+    }
+  }
+
+  .grid {
+    padding: 0px;
+  }
+
+  ion-input {
+    input {
+      margin: 0px 8px !important;
+      text-align: right;
+      ::placeholder {
+        color: #ffffff;
+      }
+    }
+    .text-input::-moz-placeholder {
+      color: white;
+    }
+
+    .text-input:-ms-input-placeholder {
+      color: white;
+    }
+
+    .text-input::-webkit-input-placeholder {
+      text-indent: 0;
+      color: white;
+    }
+  }
+
+  .emptymsg {
+    padding: 0.4em 1em;
+  }
+
+
+
+  .datatable-header {
+    background: transparent;
+    padding: 1em 0 0 1em;
+ }
+
+ .datatable-header-cell {
+    font-size: 1.2em;
+    font-weight: bold;
+ }
+
+ .datatable-body-row {
+    padding: 0;
+ }
+
+ .datatable-row-even {
+  background-color: #fff;
+  color: brown;
+
+ }
+
+ .datatable-row-odd {
+    color: #fff;
+ }
+
+ .datatable-body-cell {
+    font-size: 1em;
+    padding: 0.4em 1em;
+ }
+
+
+ // Style footer appearance
+ .datatable-footer {
+    background: rgba(218, 226, 234,1);
+    padding: 0 1em 0 1em;
+
+    .pager {
+       li {
+          padding: 0 1em !important;
+
+          a {
+             color: rgba(68, 68, 68, 1);
+             text-decoration: none;
+          }
+       }
+    }
+ }
+
+
+ // Style rules for the footer pagination elements
+ .datatable-icon-done-all:before {
+    content: ">>";
+ }
+
+ .datatable-icon-left:before {
+    content: "<";
+ }
+
+ .datatable-icon-right:before {
+    content: ">";
+ }
+
+ .datatable-icon-skip:before {
+    content: ">>";
+ }
+
+ .datatable-icon-prev:before {
+    content: "<<";
+ }
+
+
+
+  .etat {
+    background-color: rgb(255, 255, 255);
+    color: brown;
+    ion-icon {
+      float: right;
+    }
+
+    .encours {
+      color: #ffb300;
+    }
+    .afaire {
+      color: #ff1100ec;
+    }
+    .termine {
+      color: #0084ff;
+    }
+  }
+
+  .synchbtn {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    z-index: 100000;
+  }
+
+  .pied {
+    letter-spacing: 8px;
+    font-size: 14px;
+    color: #fff;
+
+    button {
+      float:right;
+      width: 300px;
+      background-color: #fff;
+    }
+
+    ion-icon {
+      display: inline-block;
+      font-size: 1.8em !important;
+    }
+  }
+
+}

@@ -1,0 +1,162 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content class="body">
+
+  <!--
+  <div class="tete">
+      <ion-icon name="ios-disc-outline"></ion-icon> ABC immoservices
+  </div>
+  -->
+  <div class="tete">
+    <img width="12%" height="auto" src="../../assets/imgs/logo.png">
+    <!-- <span style="padding-bottom: 20px"> ABC immoservices</span> -->
+  </div>
+
+  <div class="corp">
+    <ion-grid *ngIf="technicienConnected">
+      <ion-row>
+        <ion-col style="padding: 0.9em;">
+          <ion-grid>
+            <ion-row>
+              <ion-col col-md-8>
+                <span (click)="exportDbData()">Missions</span> de <b>{{ technicienConnected.prenom }} {{ technicienConnected.nom }}</b> le <b>{{ todayDate }}</b>
+              </ion-col>
+              <ion-col col-md-2>
+              </ion-col>
+              <ion-col col-md-2>
+                <button ion-button color="danger" (click)="disconnect()"> Déconnexion </button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+      <ion-row style="border-bottom: 1px solid;">
+        <ion-col style="padding: 4px 0.9em;">Sélectionner une mission</ion-col>
+        <ion-col style="display: inline-flex;height: 32px;">
+          <ion-input placeholder="Filtrer par mot-clé" [(ngModel)]="search" (ngModelChange)='updateFilter($event)'
+            clearInput></ion-input>
+          <ion-icon name="search"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+
+      <ngx-datatable #tab [headerHeight]="50" [rowHeight]="'auto'" [rows]="table" [columnMode]="'force'" [limit]="100"
+        [rowClass]="getRowClass" [messages]="messages" [sorts]="[{prop: 'datemission', dir: 'asc'}]" (activate)="onUserEvent($event)" >
+
+
+        <ngx-datatable-column name="Datemission" [sortable]="true">
+          <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn">
+            <span (click)="sort()">Date</span>
+          </ng-template>
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value | date: 'dd/MM/yyyy HH:mm'}}
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Nummission" [sortable]="true">
+          <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn">
+            <span (click)="sort()">N° mission</span>
+          </ng-template>
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Typemission" [sortable]="true">
+          <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn">
+            <span (click)="sort()">Type</span>
+          </ng-template>
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Proprietaire" [sortable]="true">
+          <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn">
+            <span (click)="sort()"> Propriétaire</span>
+          </ng-template>
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Locataire" [sortable]="true">
+          <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn">
+            <span (click)="sort()">Locataire</span>
+          </ng-template>
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Agence" [sortable]="true">
+          <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn">
+            <span (click)="sort()">Agence</span>
+          </ng-template>
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Ville" [sortable]="true">
+          <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn">
+            <span (click)="sort()"> Ville </span>
+          </ng-template>
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            {{value}}
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Etat" [cellClass]="'etat'" [sortable]="true">
+          <ng-template let-column="column" ngx-datatable-header-template let-sort="sortFn">
+            <span (click)="sort()"> Etat </span>
+          </ng-template>
+          <ng-template let-value="value" ngx-datatable-cell-template>
+            <div class="etat">
+              <div *ngIf="value === 'Planifié'">
+                <span>A Faire</span>
+                <ion-icon name="radio-button-on" class="afaire"></ion-icon>
+              </div>
+              <div *ngIf="value === 'pending'">
+                <span>En cours</span>
+                <ion-icon name="radio-button-on" class="encours"></ion-icon>
+              </div>
+              <div *ngIf="value === 'tosync'">
+                <span>A synchroniser</span>
+                <ion-icon name="radio-button-on" class="tosync"></ion-icon>
+              </div>
+              <div *ngIf="value === 'synchronized'">
+                <span>Terminé</span>
+                <ion-icon name="radio-button-on" class="termine"></ion-icon>
+              </div>
+              <div *ngIf="value === 'Intervenu'">
+                <span>Terminé</span>
+                <ion-icon name="radio-button-on" class="termine"></ion-icon>
+              </div>
+            </div>
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+    </ion-grid>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div class="pied">
+    <ion-grid>
+      <ion-row align-items-center >
+        <ion-col>
+          <button ion-button color="danger" round outline (click)="synchroniser()">Synchroniser les données</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-footer>
+

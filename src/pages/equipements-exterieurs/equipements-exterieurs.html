@@ -1,0 +1,377 @@
+<!--
+  Generated template for the EquipementsExterieursPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <!--
+  <div class="tete">
+    <ion-icon name="ios-disc-outline"></ion-icon> ABC immoservices
+  </div>
+  -->
+</ion-header>
+
+
+<ion-content class="body">
+
+  <div class="tete">
+    <img width="12%" height="auto" src="../../assets/imgs/logo.png">
+    <!-- <span style="padding-bottom: 20px"> ABC immoservices</span> -->
+  </div>
+
+
+  <div class="corp">
+    <ion-grid>
+      <ion-row style="border-bottom: 1px solid;">
+        <ion-col class="title uppercase">Equipements extérieurs</ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="title"> Pass posé
+          <ion-toggle checked="false" [(ngModel)]="equipement.passepose"></ion-toggle>
+          <span style="padding: .8em .1em; color: rgba(255, 255, 255, 0.46);"> Oui </span>
+        </ion-col>
+        <ion-col class="title"> Visiophone
+          <ion-toggle checked="false" [(ngModel)]="equipement.visiophone"></ion-toggle>
+          <span style="padding: .8em .1em; color: rgba(255, 255, 255, 0.46);"> Oui </span>
+        </ion-col>
+      </ion-row>
+      <ion-row class="form">
+        <ion-col col-2 class="addphoto" (click)="openCamera(1)" [ngClass]="{'disableImg': !equipement.passepose}">
+          <img src="{{ equipement.passeposePhoto }}" alt="">
+        </ion-col>
+        <ion-col col-4>
+          <ion-row>
+            <ion-col>Etat</ion-col>
+            <ion-col style="padding-right: 50px !important;">
+              <ion-select interface="popover" [(ngModel)]="equipement.passeposeEtat" [disabled]="!equipement.passepose">
+                <ion-option value="Neuf"> Neuf </ion-option>
+                <ion-option value="Bon état"> Bon état </ion-option>
+                <ion-option value="Moyen"> Moyen </ion-option>
+                <ion-option value="Avancé"> Avancé </ion-option>
+                <ion-option value="Dégradé"> Dégradé </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Contrôle</ion-col>
+            <ion-col style="padding-right: 50px !important;">
+              <ion-select interface="popover" [(ngModel)]="equipement.passeposeControle" (ionChange)="updateFonctionnement('passepose')" style="width:100%" [disabled]="!equipement.passepose">
+                <!-- <ion-option value="f"> Contrôlé </ion-option>
+                <ion-option value="m"> Non contrôlable </ion-option> -->
+                <ion-option value="Contrôlé"> Contrôlé </ion-option>
+                <ion-option value="Non contrôlable"> Non contrôlable </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Fonctionnement</ion-col>
+            <ion-col style="padding-right: 50px !important;">
+              <ion-select interface="popover" [(ngModel)]="equipement.passeposeFonctionnement" style="width:100%" [disabled]="!equipement.passepose">
+                <ion-option value="Fonctionne"> Fonctionne </ion-option>
+                <ion-option value="Ne fonctionne pas"> Ne fonctionne pas </ion-option>
+                <ion-option value="Non vérifiable"> Non vérifiable </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-textarea #msgInput rows="3" maxLength="255" style="background-color:#fff; color: #3b827e;width:350px;" [(ngModel)]="equipement.passeposeObservation" [disabled]="!equipement.passepose" placeholder="Observations..."></ion-textarea>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col col-2 class="addphoto" (click)="openCamera(2)" [ngClass]="{'disableImg': !equipement.visiophone}">
+          <img src="{{ equipement.visiophonePhoto }}" alt="">
+        </ion-col>
+        <ion-col col-4>
+          <ion-row>
+            <ion-col>Etat</ion-col>
+            <ion-col style="padding-right: 50px !important;">
+              <ion-select interface="popover" [(ngModel)]="equipement.visiophoneEtat" [disabled]="!equipement.visiophone">
+                <ion-option value="Neuf"> Neuf </ion-option>
+                <ion-option value="Bon état"> Bon état </ion-option>
+                <ion-option value="Moyen"> Moyen </ion-option>
+                <ion-option value="Avancé"> Avancé </ion-option>
+                <ion-option value="Dégradé"> Dégradé </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Contrôle</ion-col>
+            <ion-col style="padding-right: 50px !important;">
+              <ion-select interface="popover" [(ngModel)]="equipement.visiophoneControle" (ionChange)="updateFonctionnement('visiophone')" style="width:100%" [disabled]="!equipement.visiophone">
+                <!-- <ion-option value="f"> Contrôlé </ion-option>
+                <ion-option value="m"> Non contrôlable </ion-option> -->
+                <ion-option value="Contrôlé"> Contrôlé </ion-option>
+                <ion-option value="Non contrôlable"> Non contrôlable </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Fonctionnement</ion-col>
+            <ion-col style="padding-right: 50px !important;">
+              <ion-select interface="popover" [(ngModel)]="equipement.visiophoneFonctionnement" style="width:100%" [disabled]="!equipement.visiophone">
+                <ion-option value="Fonctionne"> Fonctionne </ion-option>
+                <ion-option value="Ne fonctionne pas"> Ne fonctionne pas </ion-option>
+                <ion-option value="Non vérifiable"> Non vérifiable </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-textarea #msgInput rows="3" maxLength="255" style="background-color:#fff; color: #3b827e;width:350px;" [(ngModel)]="equipement.visiophoneObservation" [disabled]="!equipement.visiophone" placeholder="Observations..."></ion-textarea>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="title"> Interphone
+          <ion-toggle checked="false" [(ngModel)]="equipement.interphone"></ion-toggle>
+          <span> Oui </span>
+        </ion-col>
+        <ion-col class="title"> Sonnette
+          <ion-toggle checked="false" [(ngModel)]="equipement.sonnette"></ion-toggle>
+          <span> Oui </span>
+        </ion-col>
+      </ion-row>
+      <ion-row class="form">
+        <ion-col col-2 class="addphoto" (click)="openCamera(3)" [ngClass]="{'disableImg': !equipement.interphone}">
+          <img src="{{ equipement.interphonePhoto }}" alt="">
+        </ion-col>
+        <ion-col col-4>
+          <ion-row>
+            <ion-col>Etat</ion-col>
+            <ion-col style="padding-right: 50px !important;">
+              <ion-select interface="popover" [(ngModel)]="equipement.interphoneEtat" [disabled]="!equipement.interphone">
+                <ion-option value="Neuf"> Neuf </ion-option>
+                <ion-option value="Bon état"> Bon état </ion-option>
+                <ion-option value="Moyen"> Moyen </ion-option>
+                <ion-option value="Avancé"> Avancé </ion-option>
+                <ion-option value="Dégradé"> Dégradé </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Contrôle</ion-col>
+            <ion-col style="padding-right: 50px !important;">
+              <ion-select interface="popover" [(ngModel)]="equipement.interphoneControle" (ionChange)="updateFonctionnement('interphone')" style="width:100%" [disabled]="!equipement.interphone">
+                <!-- <ion-option value="f"> Contrôlé </ion-option>
+                <ion-option value="m"> Non contrôlable </ion-option> -->
+                <ion-option value="Contrôlé"> Contrôlé </ion-option>
+                <ion-option value="Non contrôlable"> Non contrôlable </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Fonctionnement</ion-col>
+            <ion-col style="padding-right: 50px !important;">
+              <ion-select interface="popover" [(ngModel)]="equipement.interphoneFonctionnement" style="width:100%" [disabled]="!equipement.interphone">
+                <ion-option value="Fonctionne"> Fonctionne </ion-option>
+                <ion-option value="Ne fonctionne pas"> Ne fonctionne pas </ion-option>
+                <ion-option value="Non vérifiable"> Non vérifiable </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-textarea #msgInput rows="3" maxLength="255" style="background-color:#fff; color: #3b827e;width:350px;" [(ngModel)]="equipement.interphoneObservation" [disabled]="!equipement.interphone" placeholder="Observations..."></ion-textarea>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col col-2 class="addphoto" (click)="openCamera(4)" [ngClass]="{'disableImg': !equipement.sonnette}">
+          <img src="{{ equipement.sonnettePhoto }}" alt="">
+        </ion-col>
+        <ion-col col-4>
+          <ion-row>
+            <ion-col>Etat</ion-col>
+            <ion-col style="padding-right: 50px !important;">
+              <ion-select interface="popover" [(ngModel)]="equipement.sonnetteEtat" [disabled]="!equipement.sonnette">
+                <ion-option value="Neuf"> Neuf </ion-option>
+                <ion-option value="Bon état"> Bon état </ion-option>
+                <ion-option value="Moyen"> Moyen </ion-option>
+                <ion-option value="Avancé"> Avancé </ion-option>
+                <ion-option value="Dégradé"> Dégradé </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Contrôle</ion-col>
+            <ion-col style="padding-right: 50px !important;">
+              <ion-select interface="popover" [(ngModel)]="equipement.sonnetteControle" (ionChange)="updateFonctionnement('sonnette')" style="width:100%" [disabled]="!equipement.sonnette">
+                <!-- <ion-option value="f"> Contrôlé </ion-option>
+                <ion-option value="m"> Non contrôlable </ion-option> -->
+                <ion-option value="Contrôlé"> Contrôlé </ion-option>
+                <ion-option value="Non contrôlable"> Non contrôlable </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Fonctionnement</ion-col>
+            <ion-col style="padding-right: 50px !important;">
+              <ion-select interface="popover" [(ngModel)]="equipement.sonnetteFonctionnement" style="width:100%" [disabled]="!equipement.sonnette">
+                <ion-option value="Fonctionne"> Fonctionne </ion-option>
+                <ion-option value="Ne fonctionne pas"> Ne fonctionne pas </ion-option>
+                <ion-option value="Non vérifiable"> Non vérifiable </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-textarea #msgInput rows="3" maxLength="255" style="background-color:#fff; color: #3b827e;width:350px;" [(ngModel)]="equipement.sonnetteObservation" [disabled]="!equipement.sonnette" placeholder="Observations..."></ion-textarea>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+          <ion-row>
+        <ion-col class="title">Boîte aux lettres
+          <ion-toggle checked="false" [(ngModel)]="equipement.boiteauxlettres"></ion-toggle>
+          <span> Oui </span>
+        </ion-col>
+        <ion-col class="title"></ion-col>
+      </ion-row>
+      <ion-row class="form">
+        <ion-col col-2 class="addphoto" (click)="openCamera(14)" [ngClass]="{'disableImg': !equipement.boiteauxlettres}">
+          <img src="{{ equipement.boiteauxlettresPhoto }}" alt="">
+        </ion-col>
+        <ion-col col-4>
+          <ion-row>
+            <ion-col>Etat</ion-col>
+            <ion-col style="padding-right: 50px !important;">
+              <ion-select interface="popover" [(ngModel)]="equipement.boiteauxlettresEtat" [disabled]="!equipement.boiteauxlettres">
+                <ion-option value="Neuf"> Neuf </ion-option>
+                <ion-option value="Bon état"> Bon état </ion-option>
+                <ion-option value="Moyen"> Moyen </ion-option>
+                <ion-option value="Avancé"> Avancé </ion-option>
+                <ion-option value="Dégradé"> Dégradé </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Contrôle</ion-col>
+            <ion-col style="padding-right: 50px !important;">
+              <ion-select interface="popover" [(ngModel)]="equipement.boiteauxlettresControle" (ionChange)="updateFonctionnement('boiteauxlettres')" style="width:100%" [disabled]="!equipement.boiteauxlettres">
+                <!-- <ion-option value="f"> Contrôlé </ion-option>
+                <ion-option value="m"> Non contrôlable </ion-option> -->
+                <ion-option value="Contrôlé"> Contrôlé </ion-option>
+                <ion-option value="Non contrôlable"> Non contrôlable </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>Fonctionnement</ion-col>
+            <ion-col style="padding-right: 50px !important;">
+              <ion-select interface="popover" [(ngModel)]="equipement.boiteauxlettresFonctionnement" style="width:100%" [disabled]="!equipement.boiteauxlettres">
+                <ion-option value="Fonctionne"> Fonctionne </ion-option>
+                <ion-option value="Ne fonctionne pas"> Ne fonctionne pas </ion-option>
+                <ion-option value="Non vérifiable"> Non vérifiable </ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-textarea #msgInput rows="3" maxLength="255" style="background-color:#fff; color: #3b827e;width:350px;" [(ngModel)]="equipement.boiteauxlettresObservation" [disabled]="!equipement.boiteauxlettres" placeholder="Observations..."></ion-textarea>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col col-2></ion-col>
+        <ion-col col-4></ion-col>
+      </ion-row>
+
+      <!-- Pièce d'identité -->
+      <ion-row style="border-bottom: 1px solid;">
+        <ion-col class="title uppercase">Pièces d'identité</ion-col>
+      </ion-row>
+      <ion-row class="form">
+        <ion-col col-2 class="addphoto" (click)="openCamera(5)">
+          <img src="{{ equipement.pieceIdentitePhoto1 }}" alt="">
+        </ion-col>
+        <ion-col col-4>
+          <ion-row>
+            <ion-col> Numéro </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="text-right">
+              <input [(ngModel)]="equipement.pieceIdentiteNumero1" type="text" />
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col col-2 class="addphoto" (click)="openCamera(6)">
+          <img src="{{ equipement.pieceIdentitePhoto2 }}" alt="">
+        </ion-col>
+        <ion-col col-4>
+          <ion-row>
+            <ion-col> Numéro </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="text-right">
+              <input [(ngModel)]="equipement.pieceIdentiteNumero2" type="text" />
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <ion-row class="form">
+        <ion-col col-2 class="addphoto" (click)="openCamera(8)">
+          <img src="{{ equipement.pieceIdentitePhoto3 }}" alt="">
+        </ion-col>
+        <ion-col col-4>
+          <ion-row>
+            <ion-col> Numéro </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="text-right">
+              <input [(ngModel)]="equipement.pieceIdentiteNumero3" type="text" />
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col col-2 class="addphoto" (click)="openCamera(9)">
+          <img src="{{ equipement.pieceIdentitePhoto4 }}" alt="">
+        </ion-col>
+        <ion-col col-4>
+          <ion-row>
+            <ion-col> Numéro </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="text-right">
+              <input [(ngModel)]="equipement.pieceIdentiteNumero4" type="text" />
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+
+      <!-- procuration -->
+      <ion-row style="border-bottom: 1px solid;">
+        <ion-col class="title uppercase">Procurations</ion-col>
+      </ion-row>
+      <ion-row class="form">
+        <ion-col col-2 class="addphoto procuration" (click)="openCamera(7)">
+          <img src="{{ equipement.procurationPhoto }}" alt="">
+        </ion-col>
+        <ion-col col-2 class="addphoto procuration" (click)="openCamera(10)">
+          <img src="{{ equipement.procurationPhoto2 }}" alt="">
+        </ion-col>
+        <ion-col col-4>
+          <ion-textarea #msgInput rows="5" maxLength="255" style="background-color:#fff; color: #3b827e;width:100%;height:120px" [(ngModel)]="equipement.procurationObservation" placeholder="Observations..."></ion-textarea>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div class="pied">
+    <ion-grid>
+      <ion-row>
+        <ion-col (click)="prev()">
+          <ion-icon class="pager" name="arrow-round-back"></ion-icon>
+        </ion-col>
+        <!-- <ion-col>
+            <button ion-button round outline (click)="goToListPieces()">Recapitulatif des pieces</button>
+        </ion-col> -->
+        <ion-col (click)="next()">
+          <ion-icon class="pager" name="arrow-round-forward" style="float: right;"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-footer>

@@ -1,0 +1,67 @@
+resumelist {
+  .col-img {
+    width: 100px;
+    height: auto;
+  }
+  .card-header {
+    background-color: #3b827e;
+  }
+  .card-content {
+    padding: 0px 16px;
+    max-height: 0px;
+  }
+  .thumbnail-resume-liste {
+        .col {
+            border: solid 0.15em #3b827e;
+            overflow: hidden;
+            padding: 0;
+            margin-left: 2px;
+        }
+    }
+  .editBtn {
+    background-color: #EB505D;
+    width: 100%;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 10px;
+  }
+  .detail {
+    background-color: white;
+  }
+  .detail-child {
+    // height: 3em;
+    // overflow: hidden;
+    // text-overflow: ellipsis;
+    color: #3b827e;
+  }
+  .card-md{
+    background: none!important;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+  }
+  .detail{
+    background-color: #EFEFEF;
+    margin-bottom: 10px;
+  }
+  .color{
+    color: #fff;
+    font-weight: 900;
+  }
+  .classicState {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  .redState {
+    color: red;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  .blueState {
+    color: blue;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+}

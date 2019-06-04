@@ -1,0 +1,15 @@
+{
+  "rules": {
+    "no-duplicate-variable": true,
+    "no-unused-variable": [true],
+    "no-empty": true,
+    "no-var-keyword": true,
+    "eofline": true,
+    "no-duplicate-imports": true,
+    "no-require-imports": true,
+    "arrow-return-shorthand": true,
+    "class-name": true,
+    "newline-before-return": true
+  },
+  "rulesDirectory": ["node_modules/tslint-eslint-rules/dist/rules"]
+}
