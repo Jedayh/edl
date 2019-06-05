@@ -19,6 +19,7 @@ export class ContratsPage {
   public numberPiece: number;
   public camera: Camera;
   cameraOptions: CameraOptions;
+  compters;
 
   contrat = {
     'chaudiere': false,
@@ -60,6 +61,7 @@ export class ContratsPage {
     this.cameraOptions = this.cameraImageProvider.options;
     this.numberPiece = this.navParams.get('numberPiece');
     this.contrat.nummission = this.navParams.get('nummission');
+    this.compters = this.navParams.get('compters');
 
     this.missionDataProvider.load(this.contrat.nummission, 'contrats').then((data:any) => {
       if (data.status != 'empty') {
@@ -73,7 +75,8 @@ export class ContratsPage {
   }
   prev() {
     this.missionDataProvider.save(this.contrat.nummission, 'contrats', this.contrat, 'pending');
-    this.navCtrl.push(ReleveCompteursPage, { nummission: this.contrat.nummission,numberPiece : this.numberPiece}).then(() => {
+    this.navCtrl.push(ReleveCompteursPage, { nummission: this.contrat.nummission,numberPiece : this.numberPiece,
+      compters: this.compters}).then(() => {
       this.navCtrl.removeView(this.navCtrl.getPrevious());
     });
   }

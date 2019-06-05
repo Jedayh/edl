@@ -27,6 +27,7 @@ export class DetailMissionPage {
   detailMission: any;
   public numberPiece : any;
   public numberPieceR: any;
+  compters;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -34,7 +35,7 @@ export class DetailMissionPage {
     private alertCtrl: AlertController,
     private wsPanoProvider: WsPanoProvider
   ) {
-
+    this.compters = this.navParams.get('compters')
     this.detail.uid = this.navParams.get('nummission');
     if (typeof this.navParams.data.raw_data != 'undefined') {
       let rawData = this.navParams.data.raw_data;
@@ -192,7 +193,8 @@ export class DetailMissionPage {
          this.detail.exloc_nomcomplet = this.detail.exloc_nom + ' ' + this.detail.exloc_prenom;
       }
       this.missionDataProvider.save(this.detail.uid, 'missionDetail', this.detail, 'pending');
-      this.navCtrl.push(ReleveCompteursPage, {nummission: this.detail.uid, numberPiece : this.numberPiece}).then(() => {
+      this.navCtrl.push(ReleveCompteursPage, {nummission: this.detail.uid, numberPiece : this.numberPiece,
+        compters: this.compters}).then(() => {
         this.navCtrl.removeView(this.navCtrl.getPrevious());
       });
     }

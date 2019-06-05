@@ -66,6 +66,7 @@ export class ReleveCompteursPage {
   public camera: Camera;
   public numberPiece : number;
   cameraOptions: CameraOptions;
+  compteMax = 10;
 
   eau_froide_image: string;
   chauffage_image: string;
@@ -146,7 +147,8 @@ export class ReleveCompteursPage {
   add() {
     let newCompter = new Compter()
     newCompter.nummission = this.compteur.nummission
-    this.compters.push(newCompter)
+    if (Object.keys(this.compters).length <= this.compteMax)
+      this.compters.push(newCompter)
     this.isAdd = true;
   }
 
@@ -161,7 +163,8 @@ export class ReleveCompteursPage {
   prev() {
     //this.missionDataProvider.save(this.compteur.nummission, 'releveCompteurs', this.compteur, 'pending');
     this.missionDataProvider.saveMultipleCompteur('releveCompteurs', this.compters, 'pending');
-    this.navCtrl.push(DetailMissionPage, { nummission: this.compteur.nummission, numberPiece : this.numberPiece }).then(() => {
+    this.navCtrl.push(DetailMissionPage, { nummission: this.compteur.nummission, numberPiece : this.numberPiece,
+    compters: this.compters }).then(() => {
       this.navCtrl.removeView(this.navCtrl.getPrevious());
     });
   }
@@ -170,7 +173,8 @@ export class ReleveCompteursPage {
     //this.missionDataProvider.save(this.compteur.nummission, 'releveCompteurs', this.compteur, 'pending');
     this.missionDataProvider.saveMultipleCompteur('releveCompteurs', this.compters, 'pending');
 
-    this.navCtrl.push(ContratsPage, { nummission: this.compteur.nummission, numberPiece : this.numberPiece }).then(() => {
+    this.navCtrl.push(ContratsPage, { nummission: this.compteur.nummission, numberPiece : this.numberPiece,
+    compters: this.compters }).then(() => {
       this.navCtrl.removeView(this.navCtrl.getPrevious());
     });
   }
@@ -239,5 +243,10 @@ export class ReleveCompteursPage {
     this.navCtrl.push(ListePiecesPage, {nummission: this.compteur.nummission}).then(() => {
       this.navCtrl.removeView(this.navCtrl.getPrevious());
     });
+  }
+
+  ionViewWillEnter() {
+    if (this.navParams.get('compters'))
+      this.compters = this.navParams.get('compters');
   }
 }
